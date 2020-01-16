@@ -1,5 +1,6 @@
 import config
 from grid import Grid
+import helper_functions as helpers
 
 try:
     import simplegui
@@ -13,10 +14,11 @@ def draw(canvas):
     Default draw handler for the simplegui frame
     """
     # use state to decide what gets shown
-    grid.draw(canvas)
+    graphical_grid.draw(canvas)
 
 def click(pos):
-    print(grid.get_indices_from_coords(pos))
+    i, j =  graphical_grid.get_indices_from_coords(pos)
+    graphical_grid._grid[i][j].set_color("green")
 
 ### if name ....
 
@@ -27,5 +29,17 @@ frame.set_draw_handler(draw)
 frame.set_mouseclick_handler(click)
 
 
-grid = Grid(8, 8)
+graphical_grid = Grid(8, 8, 5, "black", "green")
+
+maze = ["........",
+        "..*#....",
+        "..##....",
+        "..##....",
+        "..##....",
+        "..##....",
+        ".....###",
+        "......*."]
+
+maze = [list(maze[i]) for i in range(len(maze))]
+helpers.display_logical_grid(maze, graphical_grid)
 frame.start()

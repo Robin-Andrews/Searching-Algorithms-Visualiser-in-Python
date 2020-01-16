@@ -14,6 +14,12 @@ class Square:
         self._pen_color = pen_color
         self._fill_color = fill_color
 
+    def set_color(self, color):
+        self._fill_color = color
+
+    def get_color(self):
+        return self._fill_color
+
     def is_in(self, pos):
         """
         Determine whether coordinates are within the area of this Square.
