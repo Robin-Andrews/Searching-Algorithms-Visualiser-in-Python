@@ -1,12 +1,8 @@
 import config
 from grid import Grid
 import helper_functions as helpers
-
-try:
-    import simplegui
-except ImportError:
-    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
-    simplegui.Frame._hide_status = True
+import search
+import time
 
 
 def draw(canvas):
@@ -16,30 +12,31 @@ def draw(canvas):
     # use state to decide what gets shown
     graphical_grid.draw(canvas)
 
+
 def click(pos):
-    i, j =  graphical_grid.get_indices_from_coords(pos)
+    i, j = graphical_grid.get_indices_from_coords(pos)
     graphical_grid._grid[i][j].set_color("green")
+
 
 ### if name ....
 
 state = "begin"
-frame = simplegui.create_frame(config.TITLE, config.FRAME_WIDTH, config.FRAME_HEIGHT)
-frame.set_canvas_background("black")
-frame.set_draw_handler(draw)
-frame.set_mouseclick_handler(click)
+# frame = simplegui.create_frame(config.TITLE, config.FRAME_WIDTH, config.FRAME_HEIGHT)
+config.frame.set_canvas_background("black")
+config.frame.set_draw_handler(draw)
+config.frame.set_mouseclick_handler(click)
+
+rows = 10
+cols = 12
+graphical_grid = Grid(rows, cols, 1, "black", "green")
 
 
-graphical_grid = Grid(8, 8, 5, "black", "green")
-
-maze = ["........",
-        "..*#....",
-        "..##....",
-        "..##....",
-        "..##....",
-        "..##....",
-        ".....###",
-        "......*."]
+maze = [[0] * cols for i in range(rows)]
+maze[0][0] = "S"
+maze[rows - 1][cols - 1] = "E"
 
 maze = [list(maze[i]) for i in range(len(maze))]
 helpers.display_logical_grid(maze, graphical_grid)
-frame.start()
+path = search.bfs(maze, (0, 0), graphical_grid)
+print(path)
+config.frame.start()

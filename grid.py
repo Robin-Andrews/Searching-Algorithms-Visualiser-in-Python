@@ -22,7 +22,8 @@ class Grid:
         for i in range(self._num_rows):
             new_row = []
             for j in range(self._num_cols):
-                new_row.append(Square(self._cell_width, (j * self._cell_width, i * self._cell_height), self._pen_size,
+                new_row.append(Square(self._cell_width if self._num_cols <= self._num_rows else self._cell_height,
+                                      (j * self._cell_width, i * self._cell_height), self._pen_size,
                                       self._pen_color, self._fill_color))
             self._grid.append(new_row)
 
