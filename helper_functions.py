@@ -1,6 +1,3 @@
-from grid import Grid
-
-
 def display_logical_grid(logical_grid, graphical_grid, color="blue"):
     num_rows, num_cols = graphical_grid.get_dimensions()
     for i in range(num_rows):

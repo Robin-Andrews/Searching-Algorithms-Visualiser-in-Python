@@ -58,13 +58,9 @@ def tick():
         index += 1
 
 
-
 def draw(canvas):
     for square in squares:
         square.draw(canvas)
-
-
-
 
 
 timer = simplegui.create_timer(1000, tick)
@@ -80,4 +76,3 @@ index = 0
 cur_time = 0
 timer.start()
 frame.start()
-

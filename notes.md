@@ -1,14 +1,11 @@
 # Notes
 
-add state to accepts start/desination and obstacles
+How to solve issue that all directions are highlighted in one timer tick?
 
-add restart button
+Add state to accept start/destination and obstacles
 
 state names: imperative or gerund? (ing?)
 
-
-
-
-implement DFS, Dijksta, and A* (with buttons for each)
+Implement DFS, Dijksta, and A* (with buttons for each)
 
 
