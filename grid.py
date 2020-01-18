@@ -38,13 +38,15 @@ class Grid:
     def get_dimensions(self):
         return (self._num_rows, self._num_cols)
 
-    def set_color(i, j, color):
-        """"""
-        self._grid[i][j].set_color(color)
+    # FIXME! Missing first argument: self
+    # def set_color(i, j, color):
+    #    """"""
+    #    self._grid[i][j].set_color(color)
 
-    def get_color(i, j):
-        """"""
-        return self._grid[i][j]
+    # FIXME! Missing first argument: self
+    # def get_color(i, j):
+    #    """"""
+    #    return self._grid[i][j]
 
     def draw(self, canvas):
         for row in self._grid:

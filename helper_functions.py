@@ -1,4 +1,4 @@
-def display_logical_grid(logical_grid, graphical_grid, color="blue"):
+def display_logical_grid(logical_grid, graphical_grid, color="blue"):  # FIXME! color unused
     num_rows, num_cols = graphical_grid.get_dimensions()
     for i in range(num_rows):
         for j in range(num_cols):
